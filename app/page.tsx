@@ -29,7 +29,7 @@ export default async function Home() {
      
 
       {allPosts.map((post) => (
-        <WritingDialogContent  content={post} key={post._id} />
+        <Tema  content={post} key={post._id} />
       ))}
 
       {allPosts.map((post) => (

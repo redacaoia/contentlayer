@@ -9,38 +9,25 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Mdx } from "./mdx-components";
+import { Writing } from "./writing";
 
 type Props = {
   content: Post;
 };
 
-async function getPageFromParams(slug: string) {
-  const page = allPages.find((page) => page.slugAsParams === slug);
-
-  if (!page) {
-    null;
-  }
-
-  return page;
-}
-export async function Tema({ content }: Props) {
-  
-  const page = await getPageFromParams(content.slug);
-
+export function Tema({ content }: Props) {
   return (
     <Dialog>
-      <DialogTrigger>
-        {content.title}
-        {/*  {content.description} */}
-      </DialogTrigger>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>{content.title}</DialogTitle>
-          <DialogDescription>
-            <Mdx code={page.body.code} />
-          </DialogDescription>
-        </DialogHeader>
-      </DialogContent>
+      <Writing.DialogTrigger>
+        <Writing.Root>
+          
+          <div>
+            <Writing.Content title={content.title} />
+          </div>
+        </Writing.Root>
+      </Writing.DialogTrigger>
+
+      <Writing.DialogContent slug={content.slugAsParams} />
     </Dialog>
   );
 }

@@ -1,15 +1,16 @@
-import { WritingContent } from "./writingContent.jsx";
-import WritingDialogContent from "./writingDialogContent.jsx";
-import { WritingImage } from "./writingImage.jsx";
-import { WritingRoot } from "./writingRoot.jsx";
-import { WritingFavorite } from "./writingsFavorite.jsx";
+import { WritingContent } from "./writingContent";
+import WritingDialogContent from "./writingDialogContent";
+import { WritingDialogTrigger } from "./writingDialogTrigger";
+import { WritingImage } from "./writingImage";
+import { WritingRoot } from "./writingRoot";
+import { WritingFavorite } from "./writingsFavorite";
 
 export const Writing = {
   Root: WritingRoot,
 
   Content: WritingContent,
   DialogContent: WritingDialogContent,
-
+  DialogTrigger: WritingDialogTrigger,
   Image: WritingImage,
   Favorite: WritingFavorite,
 };
