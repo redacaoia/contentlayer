@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import { allPosts } from "contentlayer/generated";
 
-import { Metadata } from "next";
 import { Mdx } from "@/components/mdx-components";
+import { DialogContent, DialogDescription, DialogTitle } from "../ui/dialog";
 
 interface PostProps {
   params: {
@@ -21,44 +21,33 @@ async function getPostFromParams(params: PostProps["params"]) {
   return post;
 }
 
-export async function generateMetadata({
-  params,
-}: PostProps): Promise<Metadata> {
-  const post = await getPostFromParams(params);
-
-  if (!post) {
-    return {};
-  }
-
-  return {
-    title: post.title,
-    description: post.description,
-  };
-}
-
 export async function generateStaticParams(): Promise<PostProps["params"][]> {
   return allPosts.map((post) => ({
     slug: post.slugAsParams.split("/"),
   }));
 }
 
-export default async function PostPage({ params }: PostProps) {
+export default async function WritingDialogContent({ params }: PostProps) {
   const post = await getPostFromParams(params);
 
   if (!post) {
-    notFound();
+    return (
+      <DialogContent className="py-6 prose dark:prose-invert">
+        <DialogTitle className="mb-2">tema não encontrato</DialogTitle>
+      </DialogContent>
+    );
   }
 
   return (
-    <article className="py-6 prose dark:prose-invert">
-      <h1 className="mb-2">{post.title}</h1>
+    <DialogContent className="py-6 prose dark:prose-invert">
+      <DialogTitle className="mb-2">{post.title}</DialogTitle>
       {post.description && (
-        <p className="text-xl mt-0 text-slate-700 dark:text-slate-200">
+        <DialogDescription className="text-xl mt-0 text-slate-700 dark:text-slate-200">
           {post.description}
-        </p>
+        </DialogDescription>
       )}
       <hr className="my-4" />
       <Mdx code={post.body.code} />
-    </article>
+    </DialogContent>
   );
 }

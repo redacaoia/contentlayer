@@ -3,6 +3,7 @@ import { allPages } from "contentlayer/generated";
 
 import { Tema } from "@/components/tema";
 import Link from "next/link";
+import WritingDialogContent from "@/components/writing/writingDialogContent";
 
 /* interface PageProps {
   params: {
@@ -28,7 +29,7 @@ export default async function Home() {
      
 
       {allPosts.map((post) => (
-        <Tema  content={post} key={post._id} />
+        <WritingDialogContent  content={post} key={post._id} />
       ))}
 
       {allPosts.map((post) => (
