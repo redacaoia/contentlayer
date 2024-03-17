@@ -33,15 +33,16 @@ export default function WritingDialogContent({ slug }: any) {
   }
 
   return (
-    <DialogContent className="py-6 prose dark:prose-invert">
-      <DialogTitle className="mb-2">{page.title}</DialogTitle>
-      {page.description && (
-        <DialogDescription className="text-xl mt-0 text-slate-700 dark:text-slate-200">
-          {page.description}
-        </DialogDescription>
-      )}
-      <hr className="my-4" />
-      <ScrollArea>
+    <DialogContent className=" py-6 prose dark:prose-invert">
+      <ScrollArea className="h-[90%]">
+        <DialogTitle className="mb-2">{page.title}</DialogTitle>
+        {page.description && (
+          <DialogDescription className="text-xl mt-0 text-slate-700 dark:text-slate-200">
+            {page.description}
+          </DialogDescription>
+        )}
+        <hr className="my-4" />
+
         <Mdx code={page.body.code} />
       </ScrollArea>
     </DialogContent>
