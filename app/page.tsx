@@ -3,23 +3,7 @@ import { allPages } from "contentlayer/generated";
 
 import { Tema } from "@/components/tema";
 import Link from "next/link";
-import WritingDialogContent from "@/components/writing/writingDialogContent";
 
-/* interface PageProps {
-  params: {
-    slug: string[]
-  }
-}
-async function getPageFromParams(params: PageProps["params"]) {
-  const slug = params?.slug?.join("/")
-  const page = allPages.find((page) => page.slugAsParams === slug)
-
-  if (!page) {
-    null
-  }
-
-  return page
-} */
 
 export default async function Home() {
   //const page = await getPageFromParams(params)
@@ -27,9 +11,7 @@ export default async function Home() {
   return (
     <div className="prose dark:prose-invert">
       <div className="flex  flex-col gap-8">
-        {allPosts.map((post) => (
-          <Tema content={post} key={post._id} />
-        ))}
+      <Tema allPosts={allPosts} />
       </div>
 
       {allPosts.map((post) => (

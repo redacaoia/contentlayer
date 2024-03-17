@@ -6,5 +6,5 @@ interface Props {
 }
 
 export function WritingDialogTrigger({ children }: Props) {
-  return <DialogTrigger>{children}</DialogTrigger>;
+  return <DialogTrigger className="p-0 m-0">{children}</DialogTrigger>;
 }
