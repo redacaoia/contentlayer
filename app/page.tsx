@@ -26,11 +26,11 @@ export default async function Home() {
 
   return (
     <div className="prose dark:prose-invert">
-     
-
-      {allPosts.map((post) => (
-        <Tema  content={post} key={post._id} />
-      ))}
+      <div className="flex  flex-col gap-8">
+        {allPosts.map((post) => (
+          <Tema content={post} key={post._id} />
+        ))}
+      </div>
 
       {allPosts.map((post) => (
         <article key={post._id}>

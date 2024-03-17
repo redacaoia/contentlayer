@@ -3,6 +3,7 @@ import { allPosts } from "contentlayer/generated";
 import { Page, Post, allPages } from "@/.contentlayer/generated";
 import { Mdx } from "@/components/mdx-components";
 import { DialogContent, DialogDescription, DialogTitle } from "../ui/dialog";
+import { ScrollArea } from "../ui/scroll-area";
 
 type PostProps = Post & {
   params: {
@@ -40,7 +41,9 @@ export default function WritingDialogContent({ slug }: any) {
         </DialogDescription>
       )}
       <hr className="my-4" />
-      <Mdx code={page.body.code} />
+      <ScrollArea>
+        <Mdx code={page.body.code} />
+      </ScrollArea>
     </DialogContent>
   );
 }

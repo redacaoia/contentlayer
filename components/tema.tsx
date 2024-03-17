@@ -20,7 +20,7 @@ export function Tema({ content }: Props) {
     <Dialog>
       <Writing.DialogTrigger>
         <Writing.Root>
-          
+        <Writing.Image imageUrl="https://github.com/walysonMoura.png"/>
           <div>
             <Writing.Content title={content.title} />
           </div>
